@@ -1,12 +1,13 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import styled from "styled-components";
+import Movie from "../components/Movie";
 
 const Container = styled.div`
-display: flex;
-flex-direction: column
-align-items: center;
-width: 100%
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;
 
 const Header = styled.header`
@@ -55,6 +56,9 @@ export default () => {
         <Subtitle>I love GraphQL</Subtitle>
       </Header>
       {loading && <Loading>Loading...</Loading>}
+      {!loading &&
+        data.movies &&
+        data.movies.map((m) => <Movie key={m.id} id={m.id} />)}
     </Container>
   );
 };
