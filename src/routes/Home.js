@@ -52,12 +52,13 @@ const GET_MOVIES = gql`
     movies {
       id
       medium_cover_image
+      isLiked @client
     }
   }
 `;
 
 export default () => {
-  const { loading, data } = useQuery(GET_MOVIES);
+  const { loading, data, isLiked } = useQuery(GET_MOVIES);
   return (
     <Container>
       <Header>
@@ -71,6 +72,7 @@ export default () => {
             key={m.id}
             id={m.id}
             bg={m.medium_cover_image}
+            isLiked={m.isLiked}
           />
         ))}
       </Movies>
