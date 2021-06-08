@@ -68,7 +68,11 @@ export default () => {
       {!loading && data.movies && (
         <Movies>
           {data.movies.map((m) => (
-            <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
+            <Movie
+              key={m.id}
+              id={m.id}
+              bg={m.medium_cover_image}
+            />
           ))}
         </Movies>
       )}
