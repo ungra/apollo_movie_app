@@ -3,6 +3,16 @@ import { gql, useQuery } from "@apollo/client";
 import styled from "styled-components";
 import Movie from "../components/Movie";
 
+const GET_MOVIES = gql`
+  {
+    movies {
+      id
+      medium_cover_image
+      isLiked @client
+    }
+  }
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,16 +55,6 @@ const Movies = styled.div`
   width: 60%;
   position: relative;
   top: -50px;
-`;
-
-const GET_MOVIES = gql`
-  {
-    movies {
-      id
-      medium_cover_image
-      isLiked @client
-    }
-  }
 `;
 
 export default () => {
